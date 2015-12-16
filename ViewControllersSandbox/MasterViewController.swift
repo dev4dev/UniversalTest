@@ -15,8 +15,6 @@ class MasterViewController: UIViewController {
 		return SettingsUI(container: self)
 	}()
 
-	weak var detailsViewController: DetailsViewController?
-
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
@@ -26,13 +24,18 @@ class MasterViewController: UIViewController {
 	override func viewDidAppear(animated: Bool) {
 		super.viewDidAppear(animated)
 
-		let row = 0
-		tableView.selectRowAtIndexPath(NSIndexPath(forRow: row, inSection: 0), animated: false, scrollPosition: .Top)
-		showDetailsControllerForNumber(row)
+		if UIDevice.isPad() {
+			let row = 0
+			tableView.selectRowAtIndexPath(NSIndexPath(forRow: row, inSection: 0), animated: false, scrollPosition: .Top)
+			showDetailsControllerForNumber(row)
+		}
 	}
 
 	func showDetailsControllerForNumber(number: Int) {
-		detailsViewController?.infoLabel.text = "Wow \(number)"
+		if let detailsVC = storyboard?.instantiateViewControllerWithIdentifier("DetailsVC") as? DetailsViewController {
+			detailsVC.value = "Wow \(number)"
+			showDetailViewController(detailsVC, sender: self)
+		}
 	}
 }
 
@@ -51,7 +54,6 @@ extension MasterViewController: UITableViewDataSource, UITableViewDelegate {
 	}
 
 	func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-
 		showDetailsControllerForNumber(indexPath.row)
 	}
 }

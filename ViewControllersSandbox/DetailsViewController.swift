@@ -15,9 +15,21 @@ class DetailsViewController: UIViewController {
 		return SettingsUI(container: self)
 	}()
 
+	var value: String?
+
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
 		settingsUI.addNavigationBarButtonOnPad()
+	}
+
+	override func viewWillAppear(animated: Bool) {
+		super.viewWillAppear(animated)
+
+		updateView()
+	}
+
+	func updateView() {
+		infoLabel.text = value
 	}
 }

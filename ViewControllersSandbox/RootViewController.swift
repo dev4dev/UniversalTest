@@ -16,25 +16,27 @@ class RootViewController: UISplitViewController {
 		minimumPrimaryColumnWidth = 280
 		preferredPrimaryColumnWidthFraction = 0.3
 
-		masterVC()?.detailsViewController = detailsVC()
-	}
-	
-	func masterVC() -> MasterViewController? {
-		guard viewControllers.count > 0 else {
-			return nil
-		}
-		guard let nav = viewControllers.first as? UINavigationController else {
-			return viewControllers.first as? MasterViewController
-		}
-
-		return nav.viewControllers.first as? MasterViewController
+		delegate = self
 	}
 
-	func detailsVC() -> DetailsViewController? {
+	func detailsVC() -> UIViewController? {
 		if viewControllers.count > 1 {
-			return viewControllers[1] as? DetailsViewController
+			return viewControllers[1]
 		} else {
 			return nil
 		}
 	}
+}
+
+extension RootViewController: UISplitViewControllerDelegate {
+
+	func splitViewController(splitViewController: UISplitViewController, showDetailViewController vc: UIViewController, sender: AnyObject?) -> Bool {
+		if let detailsVC = detailsVC() as? UINavigationController {
+			detailsVC.setViewControllers([vc], animated: false)
+			return true
+		} else {
+			return false
+		}
+	}
+	
 }
