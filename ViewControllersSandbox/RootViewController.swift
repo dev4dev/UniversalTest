@@ -26,6 +26,18 @@ class RootViewController: UISplitViewController {
 			return nil
 		}
 	}
+
+	override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+		if UIDevice.isPad() {
+			return .All
+		} else {
+			return .Portrait
+		}
+	}
+
+	override func shouldAutorotate() -> Bool {
+		return UIDevice.isPad()
+	}
 }
 
 extension RootViewController: UISplitViewControllerDelegate {

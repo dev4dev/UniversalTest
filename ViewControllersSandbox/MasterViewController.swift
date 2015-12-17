@@ -10,11 +10,15 @@ import UIKit
 
 class MasterViewController: UIViewController {
 
+	// MARK: - Outlets
 	@IBOutlet weak var tableView: UITableView!
+
+	// MARK: - System
 	lazy var settingsUI: SettingsUI = {
 		return SettingsUI(container: self)
 	}()
 
+	// MARK: - UI Lifecycle
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
@@ -39,6 +43,7 @@ class MasterViewController: UIViewController {
 	}
 }
 
+// MARK: - TableView DD
 extension MasterViewController: UITableViewDataSource, UITableViewDelegate {
 
 	func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

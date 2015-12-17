@@ -18,6 +18,7 @@
 		6303B0491C215FE90097C197 /* UIDevice+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6303B0481C215FE90097C197 /* UIDevice+Additions.swift */; };
 		6303B04B1C2164310097C197 /* UIViewController+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6303B04A1C2164310097C197 /* UIViewController+Additions.swift */; };
 		6303B04D1C21648C0097C197 /* SettingsUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6303B04C1C21648C0097C197 /* SettingsUI.swift */; };
+		637CA1601C22FE8200F885E9 /* UIView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637CA15F1C22FE8200F885E9 /* UIView+Additions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		6303B0481C215FE90097C197 /* UIDevice+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIDevice+Additions.swift"; sourceTree = "<group>"; };
 		6303B04A1C2164310097C197 /* UIViewController+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Additions.swift"; sourceTree = "<group>"; };
 		6303B04C1C21648C0097C197 /* SettingsUI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsUI.swift; sourceTree = "<group>"; };
+		637CA15F1C22FE8200F885E9 /* UIView+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Additions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,7 @@
 				6303B0481C215FE90097C197 /* UIDevice+Additions.swift */,
 				6303B04A1C2164310097C197 /* UIViewController+Additions.swift */,
 				6303B04C1C21648C0097C197 /* SettingsUI.swift */,
+				637CA15F1C22FE8200F885E9 /* UIView+Additions.swift */,
 			);
 			path = ViewControllersSandbox;
 			sourceTree = "<group>";
@@ -153,6 +156,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				637CA1601C22FE8200F885E9 /* UIView+Additions.swift in Sources */,
 				6303B0411C2148410097C197 /* MasterViewController.swift in Sources */,
 				6303B04B1C2164310097C197 /* UIViewController+Additions.swift in Sources */,
 				6303B04D1C21648C0097C197 /* SettingsUI.swift in Sources */,

@@ -10,26 +10,51 @@ import UIKit
 
 class DetailsViewController: UIViewController {
 
+	// MARK: - Outlets
 	@IBOutlet weak var infoLabel: UILabel!
+
+	// MARK: - System
 	lazy var settingsUI: SettingsUI = {
 		return SettingsUI(container: self)
 	}()
 
+	// MARK: - Data
 	var value: String?
 
+	// MARK: - UI Lifecycle
 	override func viewDidLoad() {
 		super.viewDidLoad()
-
-		settingsUI.addNavigationBarButtonOnPad()
+		setupView()
 	}
 
 	override func viewWillAppear(animated: Bool) {
 		super.viewWillAppear(animated)
-
 		updateView()
+	}
+
+	func setupView() {
+		settingsUI.addNavigationBarButtonOnPad()
+
+		switch self.view.viewOrientation {
+		case .Portrait:
+			print("Setup portrait")
+		case .Landscape:
+			print("Setup landscape")
+		}
 	}
 
 	func updateView() {
 		infoLabel.text = value
+	}
+
+	// MARK: - Transitions
+	override func willTransitionToTraitCollection(newCollection: UITraitCollection, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
+		super.willTransitionToTraitCollection(newCollection, withTransitionCoordinator: coordinator)
+		print(newCollection.horizontalSizeClass.rawValue)
+	}
+
+	override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
+		super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
+		print("From \(self.view.viewOrientation) to \(UIView.viewOrientationForSize(size))")
 	}
 }
