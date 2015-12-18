@@ -13,11 +13,6 @@ class DetailsViewController: UIViewController {
 	// MARK: - Outlets
 	@IBOutlet weak var infoLabel: UILabel!
 
-	// MARK: - System
-	lazy var settingsUI: SettingsUI = {
-		return SettingsUI(container: self)
-	}()
-
 	// MARK: - Data
 	var value: String?
 
@@ -33,7 +28,9 @@ class DetailsViewController: UIViewController {
 	}
 
 	func setupView() {
-		settingsUI.addNavigationBarButtonOnPad()
+		if UIDevice.isPad() {
+			navigationItem.rightBarButtonItem = settingsButtonItem()
+		}
 
 		switch self.view.viewOrientation {
 		case .Portrait:

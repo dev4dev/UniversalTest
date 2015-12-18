@@ -8,6 +8,20 @@
 
 import UIKit
 
+extension UIViewController {
+	/// Returns UIBarButton for displaying SettingsViewController
+	func settingsButtonItem() -> UIBarButtonItem {
+		let settingsUI: SettingsUI
+		if let ui = objc_getAssociatedObject(self, "settingsUI") as? SettingsUI {
+			settingsUI = ui
+		} else {
+			settingsUI = SettingsUI(container: self)
+		}
+		objc_setAssociatedObject(self, "settingsUI", settingsUI, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN)
+		return settingsUI.navigationBarButton()
+	}
+}
+
 class SettingsUI {
 
 	weak var containerController: UIViewController?
@@ -16,20 +30,8 @@ class SettingsUI {
 		containerController = container
 	}
 
-	func addNavigationBarButtonOnPhone() {
-		if UIDevice.isPhone() {
-			addNavigationBarButton()
-		}
-	}
-
-	func addNavigationBarButtonOnPad() {
-		if UIDevice.isPad() {
-			addNavigationBarButton()
-		}
-	}
-
-	func addNavigationBarButton() {
-		containerController?.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Settings", style: .Plain, target: self, action: "showSettings:")
+	func navigationBarButton() -> UIBarButtonItem {
+		return UIBarButtonItem(title: "Settings", style: .Plain, target: self, action: "showSettings:")
 	}
 
 	@objc func showSettings(sender: UIBarButtonItem?) {

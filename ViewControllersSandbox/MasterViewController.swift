@@ -22,7 +22,9 @@ class MasterViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
-		settingsUI.addNavigationBarButtonOnPhone()
+		if UIDevice.isPhone() {
+			navigationItem.rightBarButtonItem = settingsButtonItem()
+		}
 	}
 
 	override func viewDidAppear(animated: Bool) {
