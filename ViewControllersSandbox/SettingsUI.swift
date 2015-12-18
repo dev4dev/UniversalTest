@@ -8,22 +8,7 @@
 
 import UIKit
 
-extension UIViewController {
-	/// Returns UIBarButton for displaying SettingsViewController
-	func settingsButtonItem() -> UIBarButtonItem {
-		let settingsUI: SettingsUI
-		if let ui = objc_getAssociatedObject(self, "settingsUI") as? SettingsUI {
-			settingsUI = ui
-		} else {
-			settingsUI = SettingsUI(container: self)
-		}
-		objc_setAssociatedObject(self, "settingsUI", settingsUI, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN)
-		return settingsUI.navigationBarButton()
-	}
-}
-
 class SettingsUI {
-
 	weak var containerController: UIViewController?
 
 	init(container: UIViewController) {
@@ -45,5 +30,23 @@ class SettingsUI {
 				presentationController.barButtonItem = sender
 			}
 		}
+	}
+}
+
+extension SettingsUI {
+	static let keyName = "settingsUI"
+}
+
+extension UIViewController {
+	/// Returns UIBarButton for displaying SettingsViewController
+	func settingsButtonItem() -> UIBarButtonItem {
+		let settingsUI: SettingsUI
+		if let ui = objc_getAssociatedObject(self, SettingsUI.keyName) as? SettingsUI {
+			settingsUI = ui
+		} else {
+			settingsUI = SettingsUI(container: self)
+		}
+		objc_setAssociatedObject(self, SettingsUI.keyName, settingsUI, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN)
+		return settingsUI.navigationBarButton()
 	}
 }
