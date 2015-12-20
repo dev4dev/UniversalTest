@@ -126,36 +126,6 @@
             </objects>
             <point key="canvasLocation" x="-456" y="-1"/>
         </scene>
-        <!--Settings View Controller-->
-        <scene sceneID="CVW-KQ-vwd">
-            <objects>
-                <viewController storyboardIdentifier="SettingsVC" id="4cc-Or-eFG" customClass="SettingsViewController" customModule="ViewControllersSandbox" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="sTF-Yh-NO4"/>
-                        <viewControllerLayoutGuide type="bottom" id="Rpi-1f-EDz"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="QxC-Kf-2w6">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dZH-gR-LCV">
-                                <rect key="frame" x="268.5" y="289.5" width="63.5" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="dZH-gR-LCV" firstAttribute="centerX" secondItem="QxC-Kf-2w6" secondAttribute="centerX" id="AJC-yf-0PZ"/>
-                            <constraint firstItem="dZH-gR-LCV" firstAttribute="centerY" secondItem="QxC-Kf-2w6" secondAttribute="centerY" id="qTM-oM-bhg"/>
-                        </constraints>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="yoy-ys-PjB" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1031" y="1082"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="uJS-io-Hb2">
             <objects>

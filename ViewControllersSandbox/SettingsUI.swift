@@ -20,15 +20,10 @@ class SettingsUI {
 	}
 
 	@objc func showSettings(sender: UIBarButtonItem?) {
-		if let vc = containerController?.storyboard?.instantiateViewControllerWithIdentifier("SettingsVC") as? SettingsViewController {
-			let nav = vc.embedInNavigationController()
-			nav.modalPresentationStyle = .Popover
-			containerController?.presentViewController(nav, animated: true, completion: nil)
-
-			if let presentationController = nav.popoverPresentationController {
-				presentationController.permittedArrowDirections = [.Any]
-				presentationController.barButtonItem = sender
-			}
+		if let containerController = containerController,
+			sender = sender
+		{
+			SettingsViewController.showSettingsViewController(inController: containerController, atBarButton: sender)
 		}
 	}
 }

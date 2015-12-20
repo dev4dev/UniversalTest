@@ -20,4 +20,17 @@ class SettingsViewController: UIViewController {
 		presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
 	}
 
+	class func showSettingsViewController(inController controller: UIViewController, atBarButton barButtonItem: UIBarButtonItem) {
+		let storyboard = UIStoryboard(name: "Settings", bundle: nil)
+		let vc = storyboard.instantiateViewControllerWithIdentifier("SettingsVC")
+		let nav = vc.embedInNavigationController()
+		nav.modalPresentationStyle = .Popover
+		controller.presentViewController(nav, animated: true, completion: nil)
+
+		if let presentationController = nav.popoverPresentationController {
+			presentationController.permittedArrowDirections = [.Any]
+			presentationController.barButtonItem = barButtonItem
+		}
+	}
+
 }
